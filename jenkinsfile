@@ -1,34 +1,21 @@
-pipeline{
+e {
     agent any
+
     stages {
-        stage ('Dependencies'){
-            steps{
-                sh 'npm --version'
-                echo 'Installed dependencies'
-            }
-        }   
-        stage ('build'){
-            steps{
-                echo 'Installing depedencies'
-                sh 'npm install'
-                echo 'Build completed'
+        stage('Build') {
+            steps {
+                echo 'Building..'
             }
         }
-        stage ('test'){
-            steps{
-                sh './script/test'
+        stage('Test') {
+            steps {
+                echo 'Testing..'
             }
         }
-        stage ('Serve'){
-            steps{
-                sh 'npm install pm2'
-                sh 'pm2 start index.js'
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
-        }
-        stage ('deploy'){
-             steps{
-                 echo 'Deploy Completed'
-             }   
         }
     }
 }
