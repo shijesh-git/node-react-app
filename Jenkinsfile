@@ -22,6 +22,8 @@ pipeline {
         stage ('Serve'){
             steps{
                 sh 'npm install pm2'
+		sh 'pm2 stop all'
+		sh 'su shijesh'
                 sh 'pm2 start index.js'
             }
         }
